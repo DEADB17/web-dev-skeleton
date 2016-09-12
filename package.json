@@ -10,10 +10,9 @@
     "rimraf": "^2.5.4"
   },
   "devDependencies": {
-    "@deadb17/live-reload": "^1.4.1",
+    "browser-sync": "^2.15.0",
     "chokidar-cli": "^1.2.0",
     "eslint": "^3.5.0",
-    "http-server": "^0.9.0",
     "npm-run-all": "^3.1.0",
     "sass-lint": "^1.9.1"
   },
@@ -27,10 +26,9 @@
     "dist:css": "node-sass --source-map true --output-style compressed src/styles/index.scss www/css/index.css",
     "lint:scss": "sass-lint --config .scss-lint.yml --verbose --no-exit",
     "watch:css": "chokidar src/styles/*.scss -c 'npm run dev:css'",
-    "live-reload": "live-reload www --port 8001 --key ssl/server.key --cert ssl/server.crt",
-    "serve": "http-server www/ -a localhost -p 8000 --ssl --key ssl/server.key --cert ssl/server.crt",
+    "serve": "browser-sync start --server 'www' --files 'www' --host localhost --port 8000 --https",
     "lint": "npm run lint:js && npm run lint:scss",
-    "build": "npm run clean && npm run static && npm run dist:css",
-    "start": "npm-run-all clean static dev:css --parallel live-reload serve watch:*"
+    "build": "npm-run-all clean static dist:css",
+    "start": "npm-run-all clean static dev:css --parallel serve watch:*"
   }
 }
