@@ -19,7 +19,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:js": "eslint 'src/**/*.js'",
-    "clean": "rimraf www/*",
+    "clean:www": "rimraf www",
+    "mk:www": "mkdir www",
     "static": "cp src/*.{html,ico} www/",
     "watch:static": "chokidar src/*.html -c 'npm run static'",
     "dev:css": "node-sass --source-map true --output-style nested src/styles/index.scss www/css/index.css",
@@ -27,8 +28,10 @@
     "lint:scss": "sass-lint --config .scss-lint.yml --verbose --no-exit",
     "watch:css": "chokidar src/styles/*.scss -c 'npm run dev:css'",
     "serve": "browser-sync start --server 'www' --files 'www' --host localhost --port 8000 --https",
-    "lint": "npm run lint:js && npm run lint:scss",
-    "build": "npm-run-all clean static dist:css",
-    "start": "npm-run-all clean static dev:css --parallel serve watch:*"
+    "lint": "run-p lint:js lint:scss",
+    "build:base": "run-s clean:www mk:www static",
+    "build": "run-s build:base dist:css",
+    "start": "run-s build:base dev:css restart",
+    "restart": "run-p serve watch:*"
   }
 }
