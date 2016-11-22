@@ -7,7 +7,9 @@
   "private": true,
   "dependencies": {
     "node-sass": "^3.13.0",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.5.4",
+    "rollup": "^0.36.3",
+    "rollup-plugin-buble": "^0.14.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.2",
@@ -17,21 +19,27 @@
     "sass-lint": "^1.10.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:js": "rollup --config rollup.config.js --format iife --input src/scripts/index.js --output www/js/bundle.js --sourcemap",
     "lint:js": "eslint 'src/**/*.js'",
-    "clean:www": "rimraf www",
-    "mk:www": "mkdir www",
-    "static": "cp src/*.{html,ico} www/",
-    "watch:static": "chokidar src/*.html -c 'npm run static'",
+    "test:js": "echo \"Error: no test specified\" && exit 1",
+    "watch:js": "chokidar src/scripts/*.js -c 'npm run dev:js'",
+
     "dev:css": "node-sass --source-map true --output-style nested src/styles/index.scss www/css/index.css",
     "dist:css": "node-sass --source-map true --output-style compressed src/styles/index.scss www/css/index.css",
     "lint:scss": "sass-lint --config .scss-lint.yml --verbose --no-exit",
     "watch:css": "chokidar src/styles/*.scss -c 'npm run dev:css'",
-    "serve": "browser-sync start --server 'www' --files 'www' --host localhost --port 8000 --https",
-    "lint": "run-p lint:js lint:scss",
+
+    "clean:www": "rimraf www",
+    "mk:www": "mkdir www",
+    "static": "cp src/*.{html,ico} www/",
     "build:base": "run-s clean:www mk:www static",
-    "build": "run-s build:base dist:css",
-    "start": "run-s build:base dev:css restart",
+    "watch:static": "chokidar src/*.html -c 'npm run static'",
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "run-p lint:js lint:scss",
+    "build": "run-s build:base dist:css dev:js",
+    "serve": "browser-sync start --server 'www' --files 'www' --host localhost --port 8000 --https",
+    "start": "run-s build:base dev:css dev:js restart",
     "restart": "run-p serve watch:*"
   }
 }
