@@ -9,7 +9,8 @@
     "node-sass": "^3.13.0",
     "rimraf": "^2.5.4",
     "rollup": "^0.36.3",
-    "rollup-plugin-buble": "^0.14.0"
+    "rollup-plugin-buble": "^0.14.0",
+    "uglifyjs": "^2.4.10"
   },
   "devDependencies": {
     "browser-sync": "^2.18.2",
@@ -20,24 +21,22 @@
   },
   "scripts": {
     "dev:js": "rollup --config rollup.config.js --format iife --input src/scripts/index.js --output www/js/bundle.js --sourcemap",
+    "min:js": "uglifyjs www/js/bundle.js --compress --mangle --output www/js/bundle.min.js --in-source-map www/js/bundle.js.map --source-map www/js/bundle.min.js.map",
     "lint:js": "eslint 'src/**/*.js'",
     "test:js": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "chokidar src/scripts/*.js -c 'npm run dev:js'",
-
     "dev:css": "node-sass --source-map true --output-style nested src/styles/index.scss www/css/index.css",
     "dist:css": "node-sass --source-map true --output-style compressed src/styles/index.scss www/css/index.css",
     "lint:scss": "sass-lint --config .scss-lint.yml --verbose --no-exit",
     "watch:css": "chokidar src/styles/*.scss -c 'npm run dev:css'",
-
     "clean:www": "rimraf www",
     "mk:www": "mkdir www",
     "static": "cp src/*.{html,ico} www/",
     "build:base": "run-s clean:www mk:www static",
     "watch:static": "chokidar src/*.html -c 'npm run static'",
-
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "run-p lint:js lint:scss",
-    "build": "run-s build:base dist:css dev:js",
+    "build": "run-s build:base dist:css dev:js min:js",
     "serve": "browser-sync start --server 'www' --files 'www' --host localhost --port 8000 --https",
     "start": "run-s build:base dev:css dev:js restart",
     "restart": "run-p serve watch:*"
