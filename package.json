@@ -14,16 +14,17 @@
     "uglifyjs": "^2.4.10"
   },
   "devDependencies": {
+    "ava": "^0.17.0",
     "browser-sync": "^2.18.2",
     "chokidar-cli": "^1.2.0",
     "eslint": "^3.10.2",
     "sass-lint": "^1.10.2"
   },
   "scripts": {
+    "test": "ava src/test/**/*.js",
     "dev:js": "rollup --config rollup.config.js --format iife --input src/scripts/index.js --output www/js/bundle.js --sourcemap",
     "min:js": "uglifyjs www/js/bundle.js --compress --mangle --output www/js/bundle.min.js --in-source-map www/js/bundle.js.map --source-map www/js/bundle.min.js.map",
     "lint:js": "eslint 'src/**/*.js'",
-    "test:js": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "chokidar src/scripts/*.js -c 'npm run dev:js'",
     "dev:css": "node-sass --source-map true --output-style nested src/styles/index.scss www/css/index.css",
     "dist:css": "node-sass --source-map true --output-style compressed src/styles/index.scss www/css/index.css",
@@ -34,7 +35,6 @@
     "static": "cp src/*.{html,ico} www/",
     "build:base": "run-s clean:www mk:www static",
     "watch:static": "chokidar src/*.html -c 'npm run static'",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "run-p lint:js lint:scss",
     "build": "run-s build:base dist:css dev:js min:js",
     "serve": "browser-sync start --server 'www' --files 'www' --host localhost --port 8000 --https",
