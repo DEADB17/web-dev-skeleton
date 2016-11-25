@@ -17,9 +17,9 @@
   },
   "devDependencies": {
     "ava": "^0.17.0",
-    "browser-sync": "^2.18.2",
     "chokidar-cli": "^1.2.0",
     "eslint": "^3.10.2",
+    "live-server": "^1.1.0",
     "sass-lint": "^1.10.2"
   },
   "scripts": {
@@ -39,7 +39,7 @@
     "watch:static": "chokidar src/*.html -c 'npm run static'",
     "lint": "run-p lint:js lint:scss",
     "build": "run-s build:base dist:css dev:js min:js",
-    "serve": "browser-sync start --server 'www' --files 'www' --host localhost --port 8000 --https",
+    "serve": "live-server --port=8000 --host=localhost --browser='google chrome' www",
     "start": "run-s build:base dev:css dev:js restart",
     "restart": "run-p serve watch:*"
   }
