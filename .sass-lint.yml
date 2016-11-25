@@ -18,6 +18,11 @@ files:
     - 'src/styles/normalize.scss'
 # Rule Configuration
 rules:
+  id-name-format:
+    - 1
+    -
+      convention: ^[_A-Z]+$
+      convention-explanation: 'IDs must contain only uppercase letters and underscores'
   extends-before-mixins: 2
   extends-before-declarations: 2
   placeholder-in-extend: 2
@@ -27,15 +32,15 @@ rules:
       exclude:
         - breakpoint
         - mq
-
+  nesting-depth:
+    - 1
+    -
+      max-depth: 13
   no-warn: 1
   no-debug: 1
-  no-ids: 2
+  no-ids: 1
   no-important: 2
-  hex-notation:
-    - 2
-    -
-      style: uppercase
+  hex-notation: 1
   indentation:
     - 2
     -
@@ -43,10 +48,12 @@ rules:
   property-sort-order:
     - 1
     -
-      order:
-        - display
-        - margin
+      order: concentric
       ignore-custom-properties: true
+  leading-zero:
+    - 1
+    -
+      include: true
   variable-for-property:
     - 2
     -

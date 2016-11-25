@@ -13,6 +13,7 @@
     "rollup-plugin-buble": "^0.14.0",
     "rollup-plugin-commonjs": "^5.0.5",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "sass-lint": "^1.10.2",
     "uglifyjs": "^2.4.10"
   },
   "devDependencies": {
@@ -30,7 +31,7 @@
     "watch:js": "chokidar src/scripts/*.js -c 'npm run dev:js'",
     "dev:css": "node-sass --source-map true --output-style nested src/styles/index.scss www/css/index.css",
     "dist:css": "node-sass --source-map true --output-style compressed src/styles/index.scss www/css/index.css",
-    "lint:scss": "sass-lint --config scss-lint.yml --verbose --no-exit",
+    "lint:scss": "sass-lint --config .sass-lint.yml --verbose --no-exit",
     "watch:css": "chokidar src/styles/*.scss -c 'npm run dev:css'",
     "clean:www": "rimraf www",
     "mk:www": "mkdir www",
