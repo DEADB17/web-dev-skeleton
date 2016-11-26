@@ -1,0 +1,14 @@
+* Web dev skeleton
+
+A personal /scaffold for web development/.
+
+- npm scripts for running tasks supported by [[https://www.npmjs.com/package/npm-run-all][npm-run-all]]
+- serving and live-reload using [[https://www.npmjs.com/package/live-server][live-server]]
+- css generated with [[https://www.npmjs.com/package/node-sass][node-sass]]
+- scss linted with [[https://www.npmjs.com/package/sass-lint][sass-lint]] using [[file:.sass-lint.yml][.sass-lint.yml]]
+- javascript
+  - es6 compiled to es5 with [[https://www.npmjs.com/package/buble][buble]]
+  - bundled with [[https://www.npmjs.com/package/rollup][rollup]]
+  - testing using [[https://www.npmjs.com/package/ava][ava]]
+  - linting with [[https://www.npmjs.com/package/eslint][eslint]] using [[file:.eslintrc.json][.eslintrc.json]]
+  - minified with [[https://www.npmjs.com/package/uglifyjs][uglifyjs]]
