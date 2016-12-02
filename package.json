@@ -16,6 +16,7 @@
     "uglifyjs": "^2.4.10"
   },
   "devDependencies": {
+    "@deadb17/eslint-config": "^1.0.0-alpha",
     "ava": "^0.17.0",
     "chokidar-cli": "^1.2.0",
     "eslint": "^3.10.2",

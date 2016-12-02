@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@deadb17/eslint-config@^1.0.0-alpha":
+  version "1.0.0-alpha"
+  resolved "https://registry.yarnpkg.com/@deadb17/eslint-config/-/eslint-config-1.0.0-alpha.tgz#60ff00fe3f69c8955c354c5d5917fb1147382eac"
+
 abbrev@1:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
