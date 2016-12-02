@@ -5,6 +5,8 @@
   "author": "DEADB17 <deadb17@gmail.com>",
   "license": "GPL-3.0",
   "private": true,
+  "repository": "https://github.com/DEADB17/web-dev-skeleton",
+  "issues": "https://github.com/DEADB17/web-dev-skeleton/issues",
   "dependencies": {
     "node-sass": "^3.13.0",
     "npm-run-all": "^3.1.1",
