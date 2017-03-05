@@ -26,6 +26,7 @@
     "tape": "^4.6.3"
   },
   "scripts": {
+    "postversion": "git push && git push --tags",
     "test": "tape src/test/**/*.js",
     "dev:js": "rollup --config rollup.config.js --format iife --input src/scripts/index.js --output www/js/bundle.js --sourcemap",
     "min:js": "uglifyjs www/js/bundle.js --compress --mangle --output www/js/bundle.min.js --in-source-map www/js/bundle.js.map --source-map www/js/bundle.min.js.map",
