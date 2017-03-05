@@ -9,6 +9,6 @@ A personal /scaffold for web development/.
 - javascript
   - es6 compiled to es5 with [[https://www.npmjs.com/package/buble][buble]]
   - bundled with [[https://www.npmjs.com/package/rollup][rollup]]
-  - testing using [[https://www.npmjs.com/package/ava][ava]]
+  - testing using [[https://www.npmjs.com/package/tape][tape]]
   - linting with [[https://www.npmjs.com/package/eslint][eslint]] using [[https://www.npmjs.com/package/@deadb17/eslint-config][@deadb17/eslint-config]]
   - minified with [[https://www.npmjs.com/package/uglifyjs][uglifyjs]]

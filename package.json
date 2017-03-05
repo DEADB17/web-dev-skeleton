@@ -19,14 +19,14 @@
   },
   "devDependencies": {
     "@deadb17/eslint-config": "^1.0.0-alpha",
-    "ava": "^0.17.0",
     "chokidar-cli": "^1.2.0",
     "eslint": "^3.10.2",
     "live-server": "^1.1.0",
-    "sass-lint": "^1.10.2"
+    "sass-lint": "^1.10.2",
+    "tape": "^4.6.3"
   },
   "scripts": {
-    "test": "ava src/test/**/*.js",
+    "test": "tape src/test/**/*.js",
     "dev:js": "rollup --config rollup.config.js --format iife --input src/scripts/index.js --output www/js/bundle.js --sourcemap",
     "min:js": "uglifyjs www/js/bundle.js --compress --mangle --output www/js/bundle.min.js --in-source-map www/js/bundle.js.map --source-map www/js/bundle.min.js.map",
     "lint:js": "eslint 'src/**/*.js'",
