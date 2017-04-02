@@ -1,6 +1,6 @@
 /* eslint-env commonjs */
 
-const test = require('tape');
+import {test} from 'tape';
 
 test('default', t => {
     t.fail('add tests');
