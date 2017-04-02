@@ -37,12 +37,13 @@
     "clean:www": "rimraf www",
     "mk:www": "mkdir www",
     "static": "cp src/*.{html,ico} www/",
-    "build:base": "run-s clean:www mk:www static",
     "watch:static": "chokidar src/*.html -c 'npm run static'",
     "lint": "run-p lint:js lint:scss",
-    "build": "run-s build:base dist:css dev:js min:js",
+    "prebuild": "run-s clean:www mk:www",
+    "build": "run-s static dist:css dev:js min:js",
     "serve": "live-server --port=8000 --host=localhost --browser='google chrome' --https=https.js www",
-    "start": "run-s build:base dev:css dev:js restart",
-    "restart": "run-p serve watch:*"
+    "prestart": "run-s prebuild",
+    "start": "run-s static dev:css dev:js",
+    "poststart": "run-p serve watch:*"
   }
 }
