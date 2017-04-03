@@ -25,6 +25,7 @@
     "uglifyjs": "^2.4.10"
   },
   "scripts": {
+    "preversion": "run-s test lint",
     "postversion": "git push && git push --tags",
     "test": "tape --require reify src/test/**/*.js",
     "dev:js": "rollup --config rollup.config.js --format iife --input src/scripts/index.js --output www/js/bundle.js --sourcemap",
@@ -46,5 +47,8 @@
     "prestart": "run-s prebuild",
     "start": "run-s static dev:css dev:js",
     "poststart": "run-p serve watch:*"
+  },
+  "eslintConfig": {
+    "extends": "@deadb17/eslint-config"
   }
 }
