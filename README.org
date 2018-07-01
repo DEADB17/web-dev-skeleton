@@ -1,7 +1,5 @@
 * Web dev skeleton
 
-[[https://david-dm.org/deadb17/web-dev-skeleton.svg]]
-
 A personal /scaffold for web development/.
 
 - npm scripts for running tasks supported by [[https://www.npmjs.com/package/npm-run-all][npm-run-all]]
