@@ -13,4 +13,4 @@ A personal /scaffold for web development/.
   - To do: bundled with [[https://www.npmjs.com/package/rollup][rollup]]
   - testing using [[https://www.npmjs.com/package/tape][tape]] and [[https://www.npmjs.com/package/reify][reify]] (es6 modules)
   - linting with [[https://www.npmjs.com/package/eslint][eslint]] using [[https://www.npmjs.com/package/@deadb17/eslint-config][@deadb17/eslint-config]]
-  - minified with [[https://www.npmjs.com/package/uglifyjs][uglifyjs]]
+  - minified with [[https://www.npmjs.com/package/uglify-js][uglify-js]]
