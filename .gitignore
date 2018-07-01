@@ -157,3 +157,4 @@ flycheck_*.el
 # projectiles files
 .projectile
 /.yarnclean
+/.reify-cache/
